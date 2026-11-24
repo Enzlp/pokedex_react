@@ -21,3 +21,8 @@ export interface PokemonDetail{
     stats: Stat[];
     types: string[];
 }
+
+export interface SearchPokemon{
+    name: string;
+    id: number;
+}
