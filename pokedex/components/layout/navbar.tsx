@@ -26,11 +26,6 @@ export default function Navbar() {
 						<Heart className="h-6 w-6"/>
 						<p className="">Favorites</p>
 					</div>
-                    <div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
-						<Trophy className="h-6 w-6" />
-						<p className="">Compare</p>				
-					</div>
-        
                 </div>
 
                 <button className="p-2 border rounded-sm p-2 border-gray-200 text-gray-500 hover:bg-gray-100 cursor-pointer">
