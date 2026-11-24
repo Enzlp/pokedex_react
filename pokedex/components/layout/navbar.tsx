@@ -19,15 +19,15 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2 text-sm text-gray-500 font-semibold">
                     <div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
-						<Home className="h-5 w-5"/>
+						<Home className="h-6 w-6"/>
 						<p className="">Home</p>
 					</div>
 					<div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
-						<Heart className="h-5 w-5"/>
+						<Heart className="h-6 w-6"/>
 						<p className="">Favorites</p>
 					</div>
                     <div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
-						<Trophy className="h-5 w-5" />
+						<Trophy className="h-6 w-6" />
 						<p className="">Compare</p>				
 					</div>
         
@@ -35,7 +35,7 @@ export default function Navbar() {
 
                 <button className="p-2 border rounded-sm p-2 border-gray-200 text-gray-500 hover:bg-gray-100 cursor-pointer">
                     <Sun size={100}
-					className="h-5 w-5" />
+					className="h-6 w-6" />
                 </button>
             </div>
         </nav>
