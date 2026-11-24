@@ -1,6 +1,7 @@
 import { Heart } from "lucide-react";
 import { Pokemon } from "@/types/pokemon";
 import Link from "next/link";
+import Image from "next/image";
 
 interface PokemonCardProps {
   pokemon: Pokemon;
@@ -43,10 +44,13 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
         </div>
 
         <div className="flex justify-center items-center w-full h-48">
-          <img
-            src={pokemon.sprite}
-            alt={pokemon.name}
-            className="w-full h-full object-contain p-4 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
+          <Image
+              src={pokemon.sprite}
+              alt={pokemon.name}
+              width={192}
+              height={192}
+              loading="eager"
+              className="w-full h-full object-contain p-4 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
           />
         </div>
 
