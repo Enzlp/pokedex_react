@@ -46,8 +46,8 @@ export default async function PokemonDetails({ params }: Props) {
                             </span>
                         ))}
                     </div>
-                    <p className="font-bold text-gray-600">Height:<span className=" font-normal"> {pokemon.height}</span></p>
-                    <p className="font-bold text-gray-600">Weight:<span className=" font-normal"> {pokemon.weight}</span></p>
+                    <p className="font-bold text-gray-600">Height:<span className=" font-normal"> {(pokemon.height * 0.1).toFixed(2)} m</span></p>
+                    <p className="font-bold text-gray-600">Weight:<span className=" font-normal"> {(pokemon.weight * 0.1).toFixed(2)} kg</span></p>
                 </div>
             </div>
 
