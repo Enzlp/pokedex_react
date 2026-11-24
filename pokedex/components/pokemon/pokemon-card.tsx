@@ -27,39 +27,42 @@ export const typeColors: Record<string, string> = {
 };
 
 export default function PokemonCard({ pokemon }: PokemonCardProps) {
-  return (
-    <div className="group flex flex-col cursor-pointer p-2 rounded-xl transition-shadow duration-300">
 
-      <div className="flex justify-between text-gray-500">
-        <h1>N° {String(pokemon.id).padStart(3, "0")}</h1>
-        <button className="p-2">
-          <Heart className="w-5 h-5" />
-        </button>
-      </div>
 
-      <div className="flex justify-center">
-        <img
-          src={pokemon.sprite}
-          alt={pokemon.name}
-          className="transition-transform duration-300 ease-out group-hover:scale-110 group-hover:shadow-md"
-        />
-      </div>
-
-      <div className="flex flex-col">
-        <h1>{pokemon.name}</h1>
-
-        <div className="flex gap-2">
-          {pokemon.types.map((type) => (
-            <span
-              key={type}
-              style={{ backgroundColor: typeColors[type] }}
-              className="p-2"
-            >
-              {type}
-            </span>
-          ))}
+    return (
+    <div className="shadow-md bg-white group flex flex-col cursor-pointer p-6 rounded-3xl transition-shadow duration-300">
+        
+        <div className="flex justify-between items-center text-gray-500">
+            <h1 className="font-semibold">N° {String(pokemon.id).padStart(3, "0")}</h1>
+            <button className="p-2 cursor-pointer">
+            <Heart className="w-5 h-5 hover:scale-110" />
+            </button>
         </div>
-      </div>
+
+        <div className="flex justify-center items-center w-full h-48">
+            <img
+                src={pokemon.sprite}
+                alt={pokemon.name}
+                className="w-full h-full object-contain p-4 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
+            />
+        </div>
+
+        <hr className="p-2 text-gray-200" />
+        <div className="flex flex-col gap-2">
+            <h1 className="text-gray-500 font-bold">{pokemon.name.toUpperCase()}</h1>
+
+            <div className="flex gap-2 items-center">
+            {pokemon.types.map((type) => (
+                <span
+                key={type}
+                style={{ backgroundColor: typeColors[type] }}
+                className="px-2 py-1 rounded-2xl text-xs text-white font-bold "
+                >
+                {type.toUpperCase()}
+                </span>
+            ))}
+            </div>
+        </div>
 
     </div>
   );

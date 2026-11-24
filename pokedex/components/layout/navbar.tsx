@@ -4,7 +4,7 @@ import { Sun, Heart, Trophy, Home } from "lucide-react";
 
 export default function Navbar() {
     return (
-        <nav className="rounded-2xl flex items-center justify-between p-6 bg-white shadow-md relative z-10">
+        <nav className="rounded-2xl flex items-center justify-between p-6 bg-white shadow-md relative z-10 sticky top-0">
             <div className="flex items-center gap-2">
                 <Image
                     src="/pokeball.png"
