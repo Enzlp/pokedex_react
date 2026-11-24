@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import PokemonDetails from "./pokemon-details";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import PokemonDetailSkeleton from "@/components/skeletons/PokemonDetailSkeleton";
 
 interface Props {
   params: Promise<{
@@ -10,7 +11,7 @@ interface Props {
 
 export default function PokemonPage({ params }: Props) {
   return (
-    <Suspense fallback={<p>Loading Pokémon...</p>}>
+    <Suspense fallback={<PokemonDetailSkeleton/ >}>
       <div className="flex flex-col py-6 gap-4 w-3/4 mx-auto">
         <div className="flex justify-between">
           <button

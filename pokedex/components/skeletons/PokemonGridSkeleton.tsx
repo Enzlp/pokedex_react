@@ -8,20 +8,16 @@ export default function PokemonGridSkeleton() {
                     key={index}
                     className="shadow-md bg-white flex flex-col p-6 rounded-3xl animate-pulse"
                 >
-                    {/* Número y corazón */}
                     <div className="flex justify-between items-center">
                         <div className="h-4 w-12 bg-gray-200 rounded" />
                         <Heart className="w-5 h-5 text-gray-200" />
                     </div>
 
-                    {/* Imagen */}
                     <div className="flex justify-center items-center w-full h-48">
                         <div className="w-full h-full bg-gray-200 rounded-2xl" />
                     </div>
 
                     <hr className="p-2 text-gray-200" />
-
-                    {/* Nombre y tipos */}
                     <div className="flex flex-col gap-2">
                         <div className="h-5 w-3/4 bg-gray-200 rounded" />
 

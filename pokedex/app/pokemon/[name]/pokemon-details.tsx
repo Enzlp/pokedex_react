@@ -10,7 +10,6 @@ interface Props {
 
 export default async function PokemonDetails({ params }: Props) {
   const { name } = await params;
-
   const pokemon = await getPokemonByName(name);
 
 
