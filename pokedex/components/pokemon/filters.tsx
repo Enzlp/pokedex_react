@@ -25,10 +25,6 @@ export default function Filters(){
     return(
     <div className="flex flex-col gap-2">
         <div className="flex">
-            <div className="rounded-lg bg-white px-4 py-2 border border-gray-200">
-                <h1 className="text-sm font-semibold">RESULTS</h1>
-            </div>
-
             <div className="flex items-center">
                 <h1 className="font-semibold p-2 text-sm">SORT BY</h1>
 
