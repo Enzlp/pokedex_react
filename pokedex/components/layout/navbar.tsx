@@ -13,7 +13,7 @@ export default function Navbar() {
                     height={100}
 					className="h-10 w-10"
                 />
-                <h1 className="text-xl font-bold">Pokédex</h1>
+                <h1 className="text-xl font-bold">Kanto Pokédex</h1>
             </div>
 
             <div className="flex items-center gap-4">

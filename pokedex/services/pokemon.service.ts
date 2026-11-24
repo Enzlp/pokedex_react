@@ -1,4 +1,4 @@
-import { Pokemon } from "@/types/pokemon";
+import { Pokemon, PokemonDetail } from "@/types/pokemon";
 
 const API_URL = "https://pokeapi.co/api/v2";
 
@@ -38,4 +38,37 @@ export async function getPokemonPage(page: number): Promise<Pokemon[]> {
   );
 
   return pokemonDetails;
+}
+
+export async function getPokemonByName(
+  name: string
+): Promise<PokemonDetail> {
+  const response = await fetch(`${API_URL}/pokemon/${name}`);
+
+  if (!response.ok) {
+    throw new Error("Pokemon not found");
+  }
+
+  const data = await response.json();
+
+  return {
+    id: data.id,
+    name: data.name,
+    height: data.height,
+    weight: data.weight,
+    abilities: data.abilities.map(
+      (item: any) => item.ability.name
+    ),
+    sprite: data.sprites.other["official-artwork"].front_default,
+    moves: data.moves.map(
+      (item: any) => item.move.name
+    ),
+    stats: data.stats.map((item: any) => ({
+      name: item.stat.name,
+      value: item.base_stat,
+    })),
+    types: data.types.map(
+      (item: any) => item.type.name
+    ),
+  };
 }
