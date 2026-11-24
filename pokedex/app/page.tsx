@@ -16,6 +16,14 @@ export default function Home() {
 
 	if (isError) return <p className="text-gray-500 text-center">Error loading Pokemon</p>;
 
+	const handleScrollTop = () => {
+		window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+		});
+	};
+
+
 
   	return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
@@ -32,7 +40,10 @@ export default function Home() {
 					<div className="flex justify-between">
 						<button
 							disabled={page === 1}
-							onClick={() => setPage((prev) => prev - 1)}
+							onClick={() => {
+							setPage((prev) => prev - 1);
+							handleScrollTop();
+							}}
 							className="flex p-2 bg-white rounded-lg shadow-md text-gray-500 font-semibold gap-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
 						>
 							<ArrowLeft />
@@ -41,7 +52,10 @@ export default function Home() {
 
 						<button
 							disabled={page === 5}
-							onClick={() => setPage((prev) => prev + 1)}
+							onClick={() => {
+							setPage((prev) => prev + 1);
+							handleScrollTop();
+							}}
 							className="flex p-2 bg-white rounded-lg shadow-md text-gray-500 font-semibold gap-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
 						>
 							Next

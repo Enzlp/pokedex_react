@@ -1,4 +1,4 @@
-import { Pokemon, PokemonDetail } from "@/types/pokemon";
+import { Pokemon, PokemonDetail, SearchPokemon } from "@/types/pokemon";
 
 const API_URL = "https://pokeapi.co/api/v2";
 
@@ -71,4 +71,38 @@ export async function getPokemonByName(
       (item: any) => item.type.name
     ),
   };
+}
+
+let cachedPokemonList: SearchPokemon[] | null = null;
+export async function searchPokemonByName(
+  query: string
+): Promise<SearchPokemon[]> {
+  const cleanQuery = query.trim().toLowerCase();
+
+  if (!cleanQuery) return [];
+
+  if (!cachedPokemonList) {
+    const response = await fetch(`${API_URL}/pokemon?limit=150`);
+
+    if (!response.ok) {
+      throw new Error("Error al obtener la lista de Pokémon");
+    }
+
+    const data = await response.json();
+
+    cachedPokemonList = data.results.map(
+      (pokemon: { name: string; url: string }) => ({
+        name: pokemon.name,
+        id: Number(
+          pokemon.url.split("/").filter(Boolean).pop()
+        ),
+      })
+    );
+  }
+
+  const pokemonList = cachedPokemonList ?? [];
+
+  return pokemonList.filter((pokemon) =>
+    pokemon.name.includes(cleanQuery)
+  );
 }
