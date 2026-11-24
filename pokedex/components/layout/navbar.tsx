@@ -1,29 +1,41 @@
 
 import Image from "next/image";
-import { Sun } from "lucide-react";
+import { Sun, Heart, Trophy, Home } from "lucide-react";
 
 export default function Navbar() {
     return (
-        <nav className="flex items-center justify-between px-6 py-4">
+        <nav className="rounded-2xl flex items-center justify-between p-6 bg-white shadow-md relative z-10">
             <div className="flex items-center gap-2">
                 <Image
                     src="/pokeball.png"
                     alt="pokeball"
-                    width={20}
-                    height={20}
+                    width={100}
+                    height={100}
+					className="h-10 w-10"
                 />
-                <h1 className="text-lg font-bold">Pokédex</h1>
+                <h1 className="text-xl font-bold">Pokédex</h1>
             </div>
 
-            <div className="flex items-center gap-6">
-                <div className="flex items-center gap-6">
-                    <p className="text-lg cursor-pointer">Home</p>
-                    <p className="text-lg cursor-pointer">Favorites</p>
-                    <p className="text-lg cursor-pointer">Compare</p>
+            <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 text-sm text-gray-500 font-semibold">
+                    <div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
+						<Home className="h-5 w-5"/>
+						<p className="">Home</p>
+					</div>
+					<div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
+						<Heart className="h-5 w-5"/>
+						<p className="">Favorites</p>
+					</div>
+                    <div className="border border-transparent p-2 rounded-md flex gap-2 items-end cursor-pointer hover:bg-gray-100 hover:border-gray-200">
+						<Trophy className="h-5 w-5" />
+						<p className="">Compare</p>				
+					</div>
+        
                 </div>
 
-                <button className="border-2 rounded-sm p-2">
-                    <Sun size={20} />
+                <button className="p-2 border rounded-sm p-2 border-gray-200 text-gray-500 hover:bg-gray-100 cursor-pointer">
+                    <Sun size={100}
+					className="h-5 w-5" />
                 </button>
             </div>
         </nav>
