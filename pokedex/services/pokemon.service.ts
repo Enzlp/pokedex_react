@@ -106,3 +106,46 @@ export async function searchPokemonByName(
     pokemon.name.includes(cleanQuery)
   );
 }
+
+
+export async function getPokemonByType(type: string): Promise<Pokemon[]> {
+  const response = await fetch(`${API_URL}/type/${type}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch Pokemon by type");
+  }
+
+  const data = await response.json();
+
+  // Considerar únicamente Pokémon con ID del 1 al 150
+  const pokemonList = data.pokemon.filter(
+    (item: { pokemon: { url: string } }) => {
+      const id = Number(
+        item.pokemon.url.split("/").filter(Boolean).pop()
+      );
+
+      return id <= 150;
+    }
+  );
+
+  return Promise.all(
+    pokemonList.map(async (item: { pokemon: { url: string } }) => {
+      const pokemonResponse = await fetch(item.pokemon.url);
+
+      if (!pokemonResponse.ok) {
+        throw new Error("Failed to fetch Pokemon details");
+      }
+
+      const details = await pokemonResponse.json();
+
+      return {
+        id: details.id,
+        name: details.name,
+        sprite: details.sprites.other["official-artwork"].front_default,
+        types: details.types.map(
+          (item: { type: { name: string } }) => item.type.name
+        ),
+      };
+    })
+  );
+}
