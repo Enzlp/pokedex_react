@@ -17,6 +17,10 @@ export default function Searchbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
+        if (selectedPokemon && search === selectedPokemon.name) {
+            return;
+        }
+
         const cleanSearch = search.trim();
 
         if (!cleanSearch) {
@@ -43,7 +47,7 @@ export default function Searchbar() {
         }, 300);
 
         return () => clearTimeout(timeout);
-    }, [search]);
+    }, [search, selectedPokemon]);
 
     const handleSelect = (pokemon: SearchPokemon) => {
         setSearch(pokemon.name);
